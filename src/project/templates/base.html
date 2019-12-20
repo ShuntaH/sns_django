@@ -14,15 +14,38 @@
     <title>SNS</title>
 </head>
 <body>
+{% block header %}
+    <nav class="navbar fixed-top navbar-dark bg-light">
+        <a class="navbar-brand" href="#!">insta</a>
+    </nav>
+{% endblock %}
+
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
-{% block header %}{% endblock %}
-{% block content %}{% endblock %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-9">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block subcontent %}
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
 
-{# Load JavaScript #}
-{% bootstrap_javascript jquery='full' %}
-{% block customjs %}{% endblock customjs %}
+
+    {# Load JavaScript #}
+    {% bootstrap_javascript jquery='full' %}
+    {% block customjs %}{% endblock customjs %}
 </body>
 </html>
 

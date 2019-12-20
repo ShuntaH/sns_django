@@ -143,8 +143,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 
-STATIC_ROOT = './../../../static/'  # 本番環境用の配信用の大元
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 本番環境用の配信用の大元
 STATIC_URL = '/static/'  # 本番環境で使われるurl
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 
 # Custom Useer
 AUTH_USER_MODEL = 'sns.User'
