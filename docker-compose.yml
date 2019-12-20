@@ -8,7 +8,7 @@ services:
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
-      - ./static:/static
+      - ./src/project/static:/static
       - ./nginx/log:/var/log/nginx
     depends_on:
       - python
@@ -33,9 +33,8 @@ services:
       - "8001"
     ports:
       - "8001:8001"
-    command: uwsgi --ini /code/project/uwsgi.ini
+    command: uwsgi --ini /code/uwsgi.ini
     volumes:
-      - ./src:/code
-      - ./static:/static
+      - ./src/project:/code
     depends_on:
       - db

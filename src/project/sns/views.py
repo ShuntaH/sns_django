@@ -1,4 +1,3 @@
-from MySQLdb._exceptions import IntegrityError
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, authenticate, login
 from django.views import generic
@@ -11,6 +10,13 @@ User = get_user_model()
 
 
 # Create your views here.
+
+
+class IndexView(generic.TemplateView):
+    """
+    ダミーページ
+    """
+    template_name = 'hoge.html'
 
 
 def signupfunc(request):
@@ -39,5 +45,5 @@ def loginfunc(request):
     return render(request, 'signin.html')  # ifじゃなかった時、つまりgetだったときはそのページの見た目だけを返す
 
 
-class IndexView(generic.TemplateView):
-    template_name = 'hoge.html'
+def listfunc(request):
+    return render(request, 'list.html')
