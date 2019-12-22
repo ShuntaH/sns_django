@@ -1,15 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.views import generic
 from .models import Post
 
 User = get_user_model()
-
-
-# from django.contrib.auth.models import User
-# already got custom user and there is sns.user in settings.py
-
-
 # Create your views here.
 
 
@@ -40,13 +35,19 @@ def loginfunc(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            return redirect('sns:index')
+            return redirect('sns:list')
         else:
             return render(request, 'signin.html', {'error': 'no such a user'})
     return render(request, 'signin.html')  # ifじゃなかった時、つまりgetだったときはそのページの見た目だけを返す
 
 
+def signoutfunc(request):
+    logout(request)
+    return redirect('sns:signin')
+
+
+@login_required
 def listfunc(request):
     posts = Post.objects.all()
-    post = posts[0]
-    return render(request, 'list.html', {'post': post})
+    user = request.user
+    return render(request, 'list.html', {'posts': posts, 'user': user})

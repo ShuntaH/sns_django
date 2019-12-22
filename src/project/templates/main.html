@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">SNS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <span class="nav-link">User: {{ user.username }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sns:signout' %}">logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock header %}
+
+{% block content %}
+    <div class="container list-container">
+        <div class="row">
+            <div class="col-md-9">
+                {% block list %}
+                {% endblock list %}
+            </div>
+            <div class="col-md-3">
+                {% block side %}
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                {% endblock side %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
