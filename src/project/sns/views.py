@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, authenticate, login
 from django.views import generic
+from .models import Post
 
 User = get_user_model()
 
@@ -46,4 +47,6 @@ def loginfunc(request):
 
 
 def listfunc(request):
-    return render(request, 'list.html')
+    posts = Post.objects.all()
+    post = posts[0]
+    return render(request, 'list.html', {'post': post})

@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block content %}
     <div class="card">
-        <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">
+        <img class="card-img-top" src="{{ post.images.url }}" alt="Card image cap">
         <div class="card-body">
             <button type="button" class="btn btn-outline-primary">fav</button>
             <button type="button" class="btn btn-outline-danger">delete</button>

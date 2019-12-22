@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'django_cleanup',
+    # 'sass_processor',
 
 ]
 
@@ -137,9 +138,19 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 本番環境用の配信用の大元
 STATIC_URL = '/static/'  # 本番環境で使われるurl
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "staticfiles"),
+    ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Custom Useer
 AUTH_USER_MODEL = 'sns.User'
+
+# scss
+# SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static/scss')
+# SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.(sass|scss)$'
+# SASS_PRECISION = 8
+# SASS_OUTPUT_STYLE = 'compressed'
+# SASS_TEMPLATE_EXTS = ['.html']
