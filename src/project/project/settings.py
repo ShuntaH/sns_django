@@ -148,6 +148,9 @@ MEDIA_URL = '/media/'
 # Custom Useer
 AUTH_USER_MODEL = 'sns.User'
 
+#login
+LOGIN_URL = 'sns:login'
+
 # scss
 # SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static/scss')
 # SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.(sass|scss)$'

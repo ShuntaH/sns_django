@@ -1,13 +1,18 @@
-{% extends 'base.html' %}
+{% extends 'main.html' %}
 {% load static %}
 
+{% block customcss %}
+    <link rel="stylesheet" href="{% static 'scss/list.css' %}">
+{% endblock customcss %}
 
-{% block content %}
-    <div class="card">
-        <img class="card-img-top" src="{{ post.images.url }}" alt="Card image cap">
-        <div class="card-body">
-            <button type="button" class="btn btn-outline-primary">fav</button>
-            <button type="button" class="btn btn-outline-danger">delete</button>
+{% block list %}
+    {% for post in posts %}
+        <div class="card card-wrapper">
+            <img class="card-img-top" src="{{ post.images.url }}" alt="Card image cap">
+            <div class="card-body">
+                <button type="button" class="btn btn-outline-primary">fav</button>
+                <button type="button" class="btn btn-outline-danger">delete</button>
+            </div>
         </div>
-    </div>
-{% endblock %}
+    {% endfor %}
+{% endblock list %}

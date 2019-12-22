@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block customcss %}
-
+    <link rel="stylesheet" href="{% static 'scss/signin.css' %}">
 {% endblock customcss %}
 
 {% block content %}
     <form class="form-signin" method="POST" action="">
         <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+        <h1 class="h3 mb-3 font-weight-normal">sign up</h1>
         {% if error %}
-            {{ error }}
+           <p class="signup-error-msg">{{ error }}</p>
         {% endif %}
         {% if msg %}
             {{ msg }}
