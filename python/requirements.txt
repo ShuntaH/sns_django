@@ -4,14 +4,18 @@ beautifulsoup4==4.8.1
 Cython==0.29.14
 decorator==4.4.1
 Django==3.0
+django-appconf==1.0.3
 django-bootstrap4==1.1.1
 django-cleanup==4.0.0
+django-compressor==2.3
 django-crispy-forms==1.8.1
+django-sass-processor==0.7.5
 entrypoints==0.3
 flake8==3.7.9
 ipython==7.10.1
 ipython-genutils==0.2.0
 jedi==0.15.1
+libsass==0.19.4
 mccabe==0.6.1
 mysqlclient==1.4.6
 parso==0.5.2
@@ -25,6 +29,8 @@ pyflakes==2.1.1
 Pygments==2.5.2
 python-dotenv==0.10.3
 pytz==2019.3
+rcssmin==1.0.6
+rjsmin==1.1.0
 six==1.13.0
 soupsieve==1.9.5
 sqlparse==0.3.0

@@ -8,6 +8,7 @@ services:
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d
       - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./src/project/media:/media
       - ./src/project/static:/static
       - ./nginx/log:/var/log/nginx
     depends_on:
